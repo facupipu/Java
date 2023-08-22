@@ -1,31 +1,28 @@
-// escrinir por consola los numeros del 50 al 100 e informar si es un numero primo, si no, escribir sus divisores.
+// escribir por consola los numeros del 50 al 100 e informar si es un numero primo, si no, escribir sus divisores.
 
 public class Dos {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] divisores;
+		int divisores = 0;
 		for(int i = 50; i <= 100; i++) {
-			divisores = new int[i/2];
-			int dindex = 0;
+			divisores = 0;
 			boolean primo = true;
-			for(int j = 2; j<= i/2; j++) {	
-				if(i%j == 0) {
-					primo = false;
-					divisores[dindex] = j;
-					dindex ++;
-					break;
+			for(int j = 1; j<= i; j++) {	
+				if(i % j == 0) {
+					divisores += 1;
+					if(divisores >= 2 && j < i){
+						if(primo)System.out.print( i +" no es primo, divisores: " + j);
+						else
+							System.out.print( ", "+j );
+						primo = false;
+											
+					}
+					
 				}
 			}
-			if(primo == true) {
-				System.out.println(i + " es primo");				
-			}
-			else {
-				for(int k = 0; k <= dindex; k++) {
-					System.out.println(divisores[dindex] + " es divisor");
-				}
-			}
-
+		if(primo) System.out.println(i + " es primo");
+		else System.out.println();
 		}
 	}
 
